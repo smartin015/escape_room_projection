@@ -1,0 +1,268 @@
+$bg_primary: #141414;
+$bg_secondary: #212121;
+$grey600: #757575;
+$grey800: #424242;
+$red700: #D32F2F;
+$lightGreen900: #33691E;
+$brightShadow: #616161;
+$red800: #C62828;
+$previewPanelWidth: 560px;
+$padBase: 16px;
+$hBarThickness: 42px;
+$videoSize: 700px;
+$showcaseFeatureSize: 350px;
+$mapSize: 400px;
+$borderColor: #606060;
+$border: 1px $borderColor solid;
+$fontFamilyHeader: 'Cinzel', sans-serif;
+$fontFamilyBody: 'MinionPro', serif;
+$fontSizeBase: 20px;
+$fontSizeImportant: 28px;
+$fontSizeHeader: 45px;
+$fontSizeSmall: 12px;
+$bodyWidth: 1000px;
+$splashParagraphSize: 16px;
+$bgInteractive: rgb(20,20,20);
+$bgHighlight: #333;
+$textDisabled: #888;
+
+/*
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cinzel-Bold'), url('../../../shared/fonts/Cinzel-Bold.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cinzel-Regular'), url('../../../shared/fonts/Cinzel-Regular.woff') format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'MinionPro';
+  src: local('MinionPro'), url('../../../shared/fonts/MinionPro-Regular.woff') format('woff');
+}
+*/
+
+
+html, body, section#react-app, textarea {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Monaco', 'Melo', 'Ubuntu Mono', monospace;
+  font-size: $fontSizeBase;
+  background-color: black;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+$ringSize: 35vmin;
+$ringMargin: 10vmin;
+
+.ring1, .ring2, .ring3 {
+  width: $ringSize;
+  height: $ringSize;
+  position:fixed;
+
+  text {
+    font-size: 1vmin;
+  }
+}
+.ring1 {
+  top: $ringMargin;
+  left: 50%;
+  margin-left: -$ringSize/2;
+}
+.ring2 {
+  bottom: $ringMargin;
+  left: $ringMargin;
+}
+.ring3 {
+  bottom: $ringMargin;
+  right: $ringMargin;
+}
+
+@keyframes ckw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.0;
+  }
+}
+
+.textCircle {
+  animation-name: ckw;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 50%;
+  display: inline-block;
+}
+
+.textCircle .english {
+  opacity: 0;
+  animation-name: pulse;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+.textCircle .gaelic {
+  opacity: 0;
+  animation-name: pulse;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-delay: 7.5s;
+}
+
+.textCircle text {
+  fill: white;
+}
+
+body > :first-child:not(#react-app) { display: none; }
+
+#react-app > .main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contents {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .learnMore {
+    margin: 0.8em auto 2.5em auto;
+    a {
+      color: white;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+  }
+  .previewVideo {
+    background: $bg_primary;
+    border: 0;
+    box-shadow: 0 0 20px #616161;
+    border-radius: 2px;
+    width: 710px;
+    height: 700px;
+    margin: auto;
+  }
+
+  .Resizer {
+    height: 5px;
+    border-top: $border;
+    cursor: ns-resize;
+    margin-bottom: -3px;
+  }
+
+  .bottomPanel {
+    .header {
+      border-bottom: $border;
+      height: $hBarThickness - 2; // Subtract to account for border size
+
+      .bottomPanel--right {
+        float: right;
+      }
+
+      button:hover {
+        color: #FFF !important;
+      }
+    }
+
+    #notesArea {
+      width: 100%;
+      height: 100%;
+    }
+
+    .console {
+      width: 100%;
+      height: calc(100% - #{$hBarThickness});
+      display: flex;
+      position: absolute;
+      flex-direction: row;
+      color: white;
+
+      button {
+        min-height: $padBase !important;
+        padding: $padBase/2 !important;
+        padding-left: 3*$padBase !important;
+        border-bottom: $border !important;
+        display: flex !important;
+        width: 100%;
+        height: auto !important;
+        flex-direction: row;
+        position: relative;
+        transition: background-color 0.3s ease;
+        text-align: left !important;
+
+        svg {
+          position: absolute;
+          top: 50%;
+          margin-top: -$padBase/2;
+          left: $padBase*0.75;
+        }
+      }
+
+      .interactive {
+        width: 100%;
+        background: $bgInteractive;
+
+        textarea {
+          resize: none;
+          color: white;
+          padding: $padBase/2;
+          padding-left: $padBase;
+          box-sizing: border-box;
+          border: 0;
+          width: 100%;
+          height: 100%;
+          overflow-y: auto;
+          background: rgba(0,0,0,0);
+        }
+      }
+
+      .preview {
+        width: $previewPanelWidth;
+        button {
+          min-height: 2.2em !important;
+          line-height: 1.1em !important;
+        }
+      }
+
+      .noScope {
+        color: $textDisabled;
+        margin-top: $padBase;
+        padding: $padBase/2;
+      }
+    }
+  }
+}
