@@ -35,10 +35,16 @@ const options = {
         },
       },
       { test: /\.(svg|png|gif|jpe?g)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader',
-        options: { name: 'images/[name].[ext]' }, // disable filename hashing for infrequently changed static assets to enable preloading
+        options: { 
+          name: '[name].[ext]',
+          outputPath: 'images/',
+        }, // disable filename hashing for infrequently changed static assets to enable preloading
       },
       { test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader',
-        options: { name: 'fonts/[name].[ext]' }, // disable filename hashing for infrequently changed static assets to enable preloading
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'fonts/',
+        }, // disable filename hashing for infrequently changed static assets to enable preloading
       },
       { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
       { test: /\.tsx$/, loaders: ['awesome-typescript-loader'], exclude: /node_modules/ },

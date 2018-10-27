@@ -26,16 +26,12 @@ $bgInteractive: rgb(20,20,20);
 $bgHighlight: #333;
 $textDisabled: #888;
 
-/*
-
 @font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Cinzel-Bold'), url('../../../shared/fonts/Cinzel-Bold.woff') format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+  font-family: 'Chancery';
+  src: url('/fonts/chancery.ttf');
 }
 
+/*
 @font-face {
   font-family: 'Cinzel';
   font-style: normal;
@@ -56,7 +52,7 @@ html, body, section#react-app, textarea {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: 'Monaco', 'Melo', 'Ubuntu Mono', monospace;
+  font-family: 'Chancery', 'Melo', 'Ubuntu Mono', monospace;
   font-size: $fontSizeBase;
   background-color: black;
 }
@@ -90,6 +86,37 @@ $ringMargin: 10vmin;
 .ring3 {
   bottom: $ringMargin;
   right: $ringMargin;
+}
+
+.rippleText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 1.2em;
+  animation: floating-text 2s ease alternate infinite;
+}
+
+@keyframes floating-text {
+  0% {  
+    text-shadow: 
+    0 0 15px #4C3100,
+    1px 1px 15px #4C3100,
+    2px 2px 15px #4C3100,
+    -1px -1px 15px #4C3100,
+    -2px -2px 15px #4C3100;
+  }
+  100% {
+    text-shadow: 
+    0 0 30px #7F5200,
+    5px 5px 30px #7F5200,
+    10px 10px 30px #7F5200,
+    -5px -5px 30px #7F5200,
+    -10px -10px 30px #7F5200;
+  }
 }
 
 @keyframes ckw {
@@ -149,10 +176,16 @@ body > :first-child:not(#react-app) { display: none; }
 }
 
 .contents {
-  position: relative;
+  position: absolute;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+
+  &>div {
+    width: 100%;
+    height: 100%;
+  }
 
   h1 {
     color: white;
@@ -265,4 +298,19 @@ body > :first-child:not(#react-app) { display: none; }
       }
     }
   }
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 5000ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 5000ms ease-out;
 }
