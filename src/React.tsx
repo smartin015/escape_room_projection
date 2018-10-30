@@ -60,7 +60,12 @@ function init() {
       };
       request.send();
     }
-    loadSound('TOMB_OPEN_SPEECH', '/assets/audio/boom.mp3');
+    loadSound('BOOM', '/assets/audio/boom.mp3');
+    loadSound('PING_SHORT', '/assets/audio/ping_short.mp3');
+    loadSound('PING_LONG', '/assets/audio/ping_long.mp3');
+    loadSound('TWINKLE_HIGH', '/assets/audio/twinkle_high.mp3');
+    loadSound('TWINKLE_MED', '/assets/audio/twinkle.mp3');
+    loadSound('TWINKLE_LOW', '/assets/audio/twinkle_low.mp3');
   } catch (e) {
     alert('Web Audio API is not supported in this browser');
   }

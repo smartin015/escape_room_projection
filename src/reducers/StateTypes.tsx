@@ -4,7 +4,13 @@ export interface ViewState {
   view: ViewType;
 }
 
-export type SFXType = 'TOMB_OPEN_SPEECH';
+export type SFXType = 'TOMB_OPEN_SPEECH'
+	|'BOOM'
+	|'PING_SHORT'
+	|'PING_LONG'
+	|'TWINKLE_HIGH'
+	|'TWINKLE_MED'
+	|'TWINKLE_LOW';
 
 export interface AudioState {
   context: AudioContext|null;
