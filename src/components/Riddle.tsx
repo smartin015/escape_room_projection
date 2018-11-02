@@ -10,7 +10,7 @@ const Riddle = (props: any): JSX.Element => {
     <p>Bursting Out, Fair Scent of Dining</p>
     <p>Spun Between, a Tale Entwining</p>
     <p>Last a Seed, Ends What Was Begun</p>
-    <p>Complete The Spell, and the Mask is Won</p>
+    <p>Cast the spell, and the Mask is Won</p>
   </RippleText>;
 };
 export default Riddle;
