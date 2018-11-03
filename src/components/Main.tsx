@@ -27,8 +27,18 @@ const Main = (props: Props): JSX.Element => {
     case 'RINGS':
       view = <Rings/>;
       break;
+    case 'TESTING':
+      view = <div style={{
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'green',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+      }}>TEST</div >;
+      break;
     default:
-      throw new Error('Unimplemented view ' + props.view);
+throw new Error('Unimplemented view ' + props.view);
   }
 
   return (

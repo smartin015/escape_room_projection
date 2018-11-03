@@ -13,6 +13,8 @@ export function handleMQTTMessage(topic: string, message: Buffer) {
           return dispatch(setView('RIDDLE'));
         case 'RINGS':
           return dispatch(setView('RINGS'));
+        case 'TESTING':
+          return dispatch(setView('TESTING'));
         default:
           console.error('Unknown view ' + message.toString());
       }

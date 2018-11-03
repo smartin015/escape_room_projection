@@ -1,4 +1,4 @@
-export type ViewType = 'NONE' | 'RIDDLE' | 'RINGS';
+export type ViewType = 'NONE' | 'RIDDLE' | 'RINGS' | 'TESTING';
 
 export interface ViewState {
   view: ViewType;
