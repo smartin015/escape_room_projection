@@ -66,6 +66,7 @@ function init() {
     loadSound('TWINKLE_HIGH', '/assets/audio/twinkle_high.mp3');
     loadSound('TWINKLE_MED', '/assets/audio/twinkle.mp3');
     loadSound('TWINKLE_LOW', '/assets/audio/twinkle_low.mp3');
+    loadSound('TOMB_OPEN_SPEECH', '/assets/audio/tomb_speech.mp3');
   } catch (e) {
     console.error('Web Audio API is not supported in this browser');
   }
