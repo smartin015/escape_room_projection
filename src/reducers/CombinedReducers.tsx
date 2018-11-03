@@ -1,4 +1,4 @@
-import {audio} from './audio';
+import {audio} from './Audio';
 import {AppState} from './StateTypes';
 import {view} from './View';
 

@@ -30,7 +30,7 @@ client.on('connect', () => {
   console.log('connected');
   client.subscribe('/action/ESCP-PRJ-00/#', (err) => {
     if (err) {
-      alert(err);
+      console.error(err);
     }
   });
 });
@@ -56,7 +56,7 @@ function init() {
       request.onload = () => {
         context.decodeAudioData(request.response, (buffer) => {
           store.dispatch({type: 'AUDIO_BUFFER_LOADED', buffer, name});
-        }, alert);
+        }, console.error);
       };
       request.send();
     }
@@ -67,7 +67,7 @@ function init() {
     loadSound('TWINKLE_MED', '/assets/audio/twinkle.mp3');
     loadSound('TWINKLE_LOW', '/assets/audio/twinkle_low.mp3');
   } catch (e) {
-    alert('Web Audio API is not supported in this browser');
+    console.error('Web Audio API is not supported in this browser');
   }
 }
 init();

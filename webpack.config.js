@@ -43,7 +43,7 @@ const options = {
       { test: /\.(ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader',
         options: {
           name: '[name].[ext]',
-          outputPath: 'fonts/',
+          outputPath: 'assets/fonts/',
         }, // disable filename hashing for infrequently changed static assets to enable preloading
       },
       { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },

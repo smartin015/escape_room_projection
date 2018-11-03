@@ -14,16 +14,16 @@ export function handleMQTTMessage(topic: string, message: Buffer) {
         case 'RINGS':
           return dispatch(setView('RINGS'));
         default:
-          alert('Unknown view ' + message.toString());
+          console.error('Unknown view ' + message.toString());
       }
     } else if (topic.endsWith('playSound')) {
       const {context, buffers} = getState().audio;
       if (context === null) {
-        return alert('Audio context not loaded!');
+        return console.error('Audio context not loaded!');
       }
       const buffer = (buffers as any)[message.toString()];
       if (!buffer) {
-        return alert('Buffer not found for' + message.toString());
+        return console.error('Buffer not found for ' + message.toString());
       }
       return playBuffer(buffer, context);
     } else {
